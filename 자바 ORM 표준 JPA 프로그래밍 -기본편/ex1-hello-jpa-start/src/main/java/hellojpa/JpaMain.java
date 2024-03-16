@@ -34,12 +34,20 @@ public class JpaMain {
 
 
             // JPQL
-            List<Member> list = em.createQuery("SELECT m FROM Member as m", Member.class)
-                    .getResultList();
+//            List<Member> list = em.createQuery("SELECT m FROM Member as m", Member.class)
+//                    .getResultList();
+//
+//            for(Member member : list) {
+//                System.out.println(member.getName());
+//            }
 
-            for(Member member : list) {
-                System.out.println(member.getName());
-            }
+
+            // 영속성
+            Member findMember1 = em.find(Member.class,101L);
+            Member findMember2 = em.find(Member.class,101L);
+
+            findMember1.setName("wkdwlgns");
+            findMember2.setName("hon22");
 
             tx.commit();
 
