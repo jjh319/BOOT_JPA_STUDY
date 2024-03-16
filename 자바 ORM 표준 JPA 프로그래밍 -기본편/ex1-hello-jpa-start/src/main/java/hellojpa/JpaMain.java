@@ -49,6 +49,12 @@ public class JpaMain {
             findMember1.setName("wkdwlgns");
             findMember2.setName("hon22");
 
+            // 준영속 : 영속 상태에서 값을 빼낸다.
+            em.detach(findMember1);
+//            em.clear();
+//            em.close();
+
+
             tx.commit();
 
         } catch (Exception e) {
