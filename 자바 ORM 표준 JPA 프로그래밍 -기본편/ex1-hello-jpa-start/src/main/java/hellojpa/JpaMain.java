@@ -46,8 +46,8 @@ public class JpaMain {
             Member findMember1 = em.find(Member.class,101L);
             Member findMember2 = em.find(Member.class,101L);
 
-            findMember1.setName("wkdwlgns");
-            findMember2.setName("hon22");
+            findMember1.setUsername("ADNINN");
+            findMember2.setUsername("hon22");
 
             // 준영속 : 영속 상태에서 값을 빼낸다.
             em.detach(findMember1);
