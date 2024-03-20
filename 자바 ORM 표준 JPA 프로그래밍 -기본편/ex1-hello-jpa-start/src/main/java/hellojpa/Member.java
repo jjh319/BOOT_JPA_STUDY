@@ -11,15 +11,29 @@ import java.util.Date;
 
 @Entity
 @Data
+//@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
+@TableGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        table = "MY_SEQUENCES",
+        pkColumnValue = "MEMBER_SEQ", allocationSize = 50 // 성능 최적화를 위해 50으로 설정
+)
 public class Member {
 
+
     @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)  // IDENTITY 전략 - 영속성 컨텍스트에 넣을 때 인서트 쿼리가 날라감.
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "MEMBER_SEQ_GENERATOR"
+    )
     private Long id;
-                            // 등록, 변경 가능 여부
+
+
+    // 등록, 변경 가능 여부
     @Column(name = "name" , updatable = false)
     private String username;
 
-                          // not null 제약조건 , 유니크 제약조건
+    // not null 제약조건 , 유니크 제약조건
     @Column(name = "age" , nullable = false , unique = true)
     private Integer age;
 

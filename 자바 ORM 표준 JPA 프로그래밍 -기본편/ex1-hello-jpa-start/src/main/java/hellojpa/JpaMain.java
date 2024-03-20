@@ -17,11 +17,11 @@ public class JpaMain {
         try {
 
 //            // Insert
-//            Member member = new Member();
-//            member.setId(2L);
-//            member.setName("HelloBB");
+            Member member = new Member();
+//            member.setId("scv2122");
+            member.setUsername("HelloBB");
 //
-//            em.persist(member);
+            em.persist(member);
 //
 //            // 조회
 //            Member findMember = em.find(Member.class, 1L);
@@ -43,14 +43,14 @@ public class JpaMain {
 
 
             // 영속성
-            Member findMember1 = em.find(Member.class,101L);
-            Member findMember2 = em.find(Member.class,101L);
-
-            findMember1.setUsername("ADNINN");
-            findMember2.setUsername("hon22");
-
-            // 준영속 : 영속 상태에서 값을 빼낸다.
-            em.detach(findMember1);
+//            Member findMember1 = em.find(Member.class,101L);
+//            Member findMember2 = em.find(Member.class,101L);
+//
+//            findMember1.setUsername("ADNINN");
+//            findMember2.setUsername("hon22");
+//
+//            // 준영속 : 영속 상태에서 값을 빼낸다.
+//            em.detach(findMember1);
 //            em.clear();
 //            em.close();
 
