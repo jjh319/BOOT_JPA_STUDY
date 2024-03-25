@@ -20,18 +20,11 @@ public class Member2 {
     @Column(name = "USERNAME")
     private String username;
 
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
 
-    @ManyToOne // 멤버가 많고 TEAM이 하나기 때문에 ( 1 : N )
-    @JoinColumn(name = "TEAM_ID")
+    // 일대다 양방향 사용x 이거 말고 다대일 양방향을 사용하자
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID",insertable = false, updatable = false)
     private Team team;
 
-
-
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    } // changeTeam
 
 } // end class

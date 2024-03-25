@@ -23,7 +23,8 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")  // Member2 클래스의 Team team < 을 연결 - 읽기전용
+    @OneToMany  // Member2 클래스의 Team team < 을 연결 - 읽기전용
+    @JoinColumn(name = "TEAM_ID")
     private List<Member2> members = new ArrayList<>();
 
     private LocalDate createTime; // 시간
