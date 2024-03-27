@@ -23,14 +23,20 @@ public class JpaMain2 {
 
         try {
 
-            Member2 member2 = new Member2();
-            member2.setUsername("member1");
+            Movie movie = new Movie();
+            movie.setDirector("aaaa");
+            movie.setActor("BBB");
+            movie.setName("바람과함께사라지다");
+            movie.setPrice(10000);
 
-            em.persist(member2);
+            em.persist(movie);
 
-            Team team = new Team();
-            team.setName("teamA");
-            team.getMembers().add(member2);
+            em.flush();
+            em.clear();
+
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovie = " + findMovie);
+
 
             tx.commit();
 
